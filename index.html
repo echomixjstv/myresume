@@ -1,30 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jess Santiago Web</title>
+<title>Jess Santiago Web | Resume and Application Letter</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
+    font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
     background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 20px;
+    padding:35px 15px;
 }
 
 .container{
     width:100%;
-    max-width:900px;
+    max-width:1100px;
+    margin:0 auto;
     background:#fff;
     border-radius:20px;
     overflow:hidden;
@@ -32,84 +31,178 @@ body{
 }
 
 .header{
-    padding:50px 20px;
+    padding:45px 20px;
     text-align:center;
     color:#fff;
     background:linear-gradient(90deg,#2563eb,#3b82f6);
 }
 
 .header h1{
-    font-size:42px;
-    margin-bottom:15px;
+    font-size:40px;
+    margin-bottom:12px;
 }
 
 .header p{
-    font-size:18px;
-    opacity:.95;
-}
-
-.preview{
-    padding:25px;
-    background:#f5f5f5;
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.preview img{
-    width:420px;
-    max-width:100%;
-    display:block;
-    border-radius:12px;
-    border:1px solid #ddd;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    font-size:17px;
+    line-height:1.7;
 }
 
 .download{
-    padding:35px;
-    text-align:center;
+    padding:25px 15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
 button{
+    border:0;
+    border-radius:10px;
+    padding:15px 25px;
     background:#2563eb;
     color:#fff;
-    border:none;
-    padding:18px 45px;
-    font-size:20px;
+    font-size:16px;
     font-weight:bold;
-    border-radius:12px;
     cursor:pointer;
-    transition:.3s;
+    transition:.2s;
 }
 
 button:hover{
     background:#1d4ed8;
-    transform:scale(1.05);
+    transform:translateY(-2px);
 }
 
-.footer{
-    text-align:center;
-    padding:20px;
-    color:#666;
-    font-size:14px;
+.print-button{
+    background:#16a34a;
 }
+
+.print-button:hover{
+    background:#15803d;
+}
+
+/* DOCUMENTS ARRANGED VERTICALLY */
+.preview{
+    background:#e9edf3;
+    padding:25px 12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    gap:25px;
+    overflow-x:auto;
+}
+
+/* RESUME JPG - FIRST A4 PAGE */
+.resume-preview{
+    display:block;
+    width:210mm;
+    height:297mm;
+    min-width:210mm;
+    flex:0 0 210mm;
+    object-fit:contain;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+}
+
+/* APPLICATION LETTER - SECOND A4 PAGE */
 .letter-page{
     width:210mm;
+    height:297mm;
+    min-width:210mm;
     min-height:297mm;
-    margin:auto;
+    flex:0 0 210mm;
     background:#fff;
-    padding:25mm;
-    box-sizing:border-box;
-    font-family:"Times New Roman", serif;
-    font-size:12pt;
-    line-height:1.7;
-    color:#000;
+    padding:22mm 25mm;
     border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    overflow:hidden;
+    color:#000;
+}
+
+.letter{
+    width:100%;
+    font-family:"Times New Roman",Times,serif;
+    font-size:12pt;
+    line-height:1.35;
+    color:#000;
 }
 
 .letter p{
-    margin-bottom:8px;
+    font-family:"Times New Roman",Times,serif;
+    font-size:12pt;
+    line-height:1.35;
+    margin:0 0 9px;
+}
+
+.letter .space{
+    height:14px;
+}
+
+.letter .large-space{
+    height:22px;
+}
+
+.letter .body-text{
+    text-align:justify;
+    margin-bottom:12px;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:22px 15px;
+    color:#64748b;
+    background:#f8fafc;
+    border-top:1px solid #e2e8f0;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.footer strong{
+    color:#1e3a8a;
+}
+
+@media(max-width:700px){
+    body{
+        padding:12px 6px;
+    }
+
+    .container{
+        border-radius:12px;
+    }
+
+    .header{
+        padding:32px 12px;
+    }
+
+    .header h1{
+        font-size:28px;
+    }
+
+    .header p{
+        font-size:14px;
+    }
+
+    .download{
+        padding:20px 12px;
+    }
+
+    button{
+        width:100%;
+        font-size:15px;
+    }
+
+    .preview{
+        padding:15px 0;
+        align-items:flex-start;
+    }
+
+    .resume-preview,
+    .letter-page{
+        align-self:center;
+    }
 }
 </style>
 </head>
@@ -118,199 +211,339 @@ button:hover{
 
 <div class="container">
 
-    <div class="header">
+    <header class="header">
         <h1>Welcome to Jess Santiago Web</h1>
-        <p>🔒 This page is secured, fast and safe to download.</p>
-    </div>
+        <p>🔒 Resume and Application Letter</p>
+        <p>Professional documents ready for printing.</p>
+    </header>
 
-    <div class="download">
-    <button onclick="downloadResume()">
-        ⬇ Download Resume
-    </button>
+    <section class="download">
 
-    <button onclick="printPictures()" style="background:#16a34a;margin-left:10px;">
-        🖨 Print Resume & Application Letter
-    </button>
-</div>
+        <button type="button" onclick="downloadResume()">
+            ⬇ Download Resume JPG
+        </button>
 
-<div class="preview" id="printArea">
+        <button type="button"
+                class="print-button"
+                onclick="printDocuments()">
+            🖨 Print Resume &amp; Application Letter
+        </button>
 
-    <img src="Jess Santiago CV Resume.jpg" alt="Resume">
+    </section>
 
-    <div class="letter-page">
+    <!-- FIRST: RESUME JPG; SECOND: APPLICATION LETTER -->
+    <section class="preview">
 
-    <div class="letter">
+        <img
+            class="resume-preview"
+            src="Jess Santiago CV Resume.jpg"
+            alt="Jess Santiago Resume"
+        >
 
-        <p><strong>Jess I. Santiago</strong></p>
-        <p>Cabiraoan, Gonzaga, Cagayan</p>
-        <p>09106465156</p>
-        <p>jesssantiago089@gmail.com</p>
+        <div class="letter-page">
 
-        <br>
+            <div class="letter" id="applicationLetter">
 
-        <p>July 23, 2026</p>
+                <p><strong>Jess I. Santiago</strong></p>
+                <p>Cabiraoan, Gonzaga, Cagayan</p>
+                <p>09106465156</p>
+                <p>jesssantiago089@gmail.com</p>
 
-        <br>
+                <div class="large-space"></div>
 
-        <p><strong>The School Principal</strong></p>
-        <p>St. Anthony Academy</p>
-        <p>Sta. Ana, Cagayan</p>
+                <p>October 9, 2026</p>
 
-        <br>
+                <div class="large-space"></div>
 
-        <p><strong>Subject: Application for Volunteer Teacher Position</strong></p>
+                <p><strong>The Hiring Manager</strong></p>
+                <p>Human Resources Department</p>
+                <p>Your Company Name</p>
+                <p>Company Address</p>
 
-        <br>
+                <div class="large-space"></div>
 
-        <p>Dear Sir/Madam,</p>
+                <p><strong>Subject: Application for Employment</strong></p>
 
-        <br>
+                <div class="space"></div>
 
-        <p style="text-align:justify;">
-            I am writing to express my sincere interest in applying for the position of
-            <strong>Volunteer Teacher</strong> at St. Anthony Academy, Sta. Ana, Cagayan.
-            As a passionate and dedicated educator, I am eager to contribute my knowledge,
-            skills, and enthusiasm to support the academic and personal development of your students.
+                <p>Dear Sir/Madam,</p>
+
+                <div class="space"></div>
+
+                <p class="body-text">
+                    I am writing to express my sincere interest in
+                    applying for a position in your company. I am eager
+                    to contribute my knowledge, skills, and dedication
+                    to support your organization's goals and success.
+                </p>
+
+                <p class="body-text">
+                    I have completed my education and developed valuable
+                    skills that I believe will help me perform my
+                    responsibilities effectively. I am willing to learn
+                    new things, adapt to different working environments,
+                    and take on challenges that will help me grow both
+                    personally and professionally.
+                </p>
+
+                <p class="body-text">
+                    I consider myself a responsible, hardworking,
+                    trustworthy, and adaptable individual who values
+                    teamwork, discipline, and professionalism. I am
+                    committed to performing my duties with honesty,
+                    dedication, and integrity while maintaining a
+                    positive attitude toward my work and colleagues.
+                </p>
+
+                <p class="body-text">
+                    I believe that joining your company would be a
+                    valuable opportunity to develop my skills, gain
+                    meaningful work experience, and contribute
+                    positively to your team. I am willing to undergo
+                    training and accept responsibilities that will help
+                    me become a more effective and productive employee.
+                </p>
+
+                <p class="body-text">
+                    Attached are my résumé and other supporting
+                    documents for your review. I would appreciate
+                    the opportunity to discuss my qualifications
+                    further in an interview at your convenience.
+                </p>
+
+                <p class="body-text">
+                    Thank you for your time and consideration. I look
+                    forward to the opportunity to become part of your
+                    company and contribute to its continued growth
+                    and success.
+                </p>
+
+                <div class="space"></div>
+
+                <p>Respectfully yours,</p>
+
+                <div style="height:45px;"></div>
+
+                <p><strong>JESS IBUS SANTIAGO</strong></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <p>
+            &copy; <span id="currentYear"></span>
+            <strong>Jess Santiago Web</strong>. All Rights Reserved.
         </p>
-
-        <p style="text-align:justify;">
-            I have completed my education in the field of teaching and have developed a strong
-            foundation in lesson planning, classroom management, and learner-centered instructional
-            strategies. I am committed to creating a positive, inclusive, and engaging learning
-            environment where students are encouraged to develop academically, socially, and morally.
-        </p>
-
-        <p style="text-align:justify;">
-            Although this is a volunteer position, I am highly motivated to serve with dedication,
-            professionalism, and integrity. I believe that teaching is not only a profession but
-            also a calling, and I am excited about the opportunity to work alongside your faculty
-            in fulfilling the school's mission of providing quality education.
-        </p>
-
-        <p style="text-align:justify;">
-            I am a responsible, hardworking, and adaptable individual who values teamwork and
-            continuous learning. I am confident that my passion for education and willingness to
-            serve will enable me to make a meaningful contribution to your school community.
-        </p>
-
-        <p style="text-align:justify;">
-            I have attached my résumé and other supporting documents for your review.
-            I would be grateful for the opportunity to discuss my qualifications further
-            in an interview at your convenience.
-        </p>
-
-        <p style="text-align:justify;">
-            Thank you for considering my application. I look forward to the opportunity to
-            serve as a Volunteer Teacher at St. Anthony Academy, Sta. Ana, Cagayan.
-        </p>
-
-        <br>
-
-        <p>Respectfully yours,</p>
-
-        <br><br><br>
-
-        <p><strong>JESS IBUS SANTIAGO</strong></p>
-
-    </div>
-
-</div>
-
-</div>
-    </div>
-
-    <div class="footer">
-        © 2026 Jess Santiago. All Rights Reserved.
-    </div>
+        <p>Resume &amp; Application Letter | Professional Documents</p>
+    </footer>
 
 </div>
 
 <script>
 function downloadResume(){
 
+    const image = document.querySelector(".resume-preview");
+
+    if(!image){
+        alert("Resume image not found.");
+        return;
+    }
+
     const link = document.createElement("a");
 
-    // Pangalan ng Word file
-    link.href = "Jess Santiago Resume.docx";
-
-    // Automatic download
-    link.download = "Jess Santiago Resume.docx";
+    link.href = image.getAttribute("src");
+    link.download = "Jess Santiago CV Resume.jpg";
 
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    link.remove();
 }
-function printPictures(){
 
-    const win = window.open("", "_blank");
+function printDocuments(){
 
-    win.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Print Documents</title>
+    const resumeImage = document.querySelector(".resume-preview");
+    const letter = document.getElementById("applicationLetter");
 
-        <style>
+    if(!resumeImage || !letter){
+        alert("Resume or application letter not found.");
+        return;
+    }
 
-        @page{
-            size:A4 portrait;
-            margin:0;
+    const imageURL = resumeImage.src;
+    const letterHTML = letter.innerHTML;
+
+    const printWindow = window.open("", "_blank");
+
+    if(!printWindow){
+        alert("Please allow pop-ups in your browser to print the documents.");
+        return;
+    }
+
+    const safeImageURL = imageURL
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;");
+
+    printWindow.document.open();
+
+    printWindow.document.write(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jess Santiago - Resume and Application Letter</title>
+
+<style>
+@page{
+    size:A4 portrait;
+    margin:0;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    padding:0;
+    margin:0;
+    background:#fff;
+    color:#000;
+}
+
+.page{
+    width:210mm;
+    height:297mm;
+    position:relative;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    page-break-after:always;
+    break-after:page;
+}
+
+.page:last-child{
+    page-break-after:auto;
+    break-after:auto;
+}
+
+/* RESUME JPG - FIRST PAGE */
+.resume-image{
+    display:block;
+    width:210mm;
+    height:297mm;
+    object-fit:contain;
+}
+
+/* APPLICATION LETTER - SECOND PAGE */
+.letter-paper{
+    width:210mm;
+    height:297mm;
+    padding:22mm 25mm;
+    overflow:hidden;
+    font-family:"Times New Roman",Times,serif;
+    font-size:12pt;
+    line-height:1.35;
+    color:#000;
+}
+
+.letter-paper p{
+    font-family:"Times New Roman",Times,serif;
+    font-size:12pt;
+    line-height:1.35;
+    margin:0 0 9px;
+}
+
+.letter-paper .body-text{
+    text-align:justify;
+    margin-bottom:12px;
+}
+
+.letter-paper .space{
+    height:14px;
+}
+
+.letter-paper .large-space{
+    height:22px;
+}
+
+@media screen{
+    body{
+        background:#e5e7eb;
+    }
+
+    .page{
+        margin:12px auto;
+        background:#fff;
+        box-shadow:0 2px 12px rgba(0,0,0,.15);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+    <img
+        class="resume-image"
+        id="resumeImage"
+        src="${safeImageURL}"
+        alt="Resume"
+    >
+</div>
+
+<div class="page">
+    <div class="letter-paper">
+        ${letterHTML}
+    </div>
+</div>
+
+<script>
+(function(){
+
+    const image = document.getElementById("resumeImage");
+
+    function printWhenReady(){
+
+        if(!image.naturalWidth){
+            alert("Unable to load the resume JPG. Check the image filename and folder.");
+            return;
         }
 
-        html,body{
-            margin:0;
-            padding:0;
-            background:#fff;
-        }
+        window.focus();
 
-        .page{
-            width:210mm;
-            height:297mm;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            page-break-after:always;
-        }
-
-        .page:last-child{
-            page-break-after:auto;
-        }
-
-        img{
-            width:210mm;
-            height:297mm;
-            object-fit:contain; /* Palitan ng 'cover' kung gusto mong sakupin buong A4 */
-        }
-
-        </style>
-
-    </head>
-
-    <body>
-
-        <div class="page">
-            <img src="Jess Santiago CV Resume.jpg">
-        </div>
-
-        <div class="page">
-            <img src="Application Letter.png">
-        </div>
-
-        <script>
-        window.onload=function(){
+        setTimeout(function(){
             window.print();
-            window.close();
-        }
-        <\/script>
+        }, 500);
+    }
 
-    </body>
-    </html>
-    `);
+    if(image.complete){
+        printWhenReady();
+    }else{
+        image.onload = printWhenReady;
 
-    win.document.close();
+        image.onerror = function(){
+            alert("Resume JPG could not be loaded.");
+        };
+    }
 
+    window.onafterprint = function(){
+        window.close();
+    };
+
+})();
+<\/script>
+
+</body>
+</html>
+`);
+
+    printWindow.document.close();
 }
-</script>
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
 </script>
 
 </body>
