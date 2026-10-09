@@ -4,204 +4,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jess Santiago Web | Resume and Application Letter</title>
+<meta name="theme-color" content="#1d4ed8">
+<title>Jess Santiago Web</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    padding:35px 15px;
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-.container{
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    background:#fff;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,.3);
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    overflow-x: hidden;
 }
 
-.header{
-    padding:45px 20px;
-    text-align:center;
-    color:#fff;
-    background:linear-gradient(90deg,#2563eb,#3b82f6);
+/* HEADER */
+.header {
+    width: 100%;
+    padding: 35px 20px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb, #0f172a);
 }
 
-.header h1{
-    font-size:40px;
-    margin-bottom:12px;
+.header h1 {
+    font-size: clamp(25px, 4vw, 38px);
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
 }
 
-.header p{
-    font-size:17px;
-    line-height:1.7;
+.header p {
+    font-size: clamp(13px, 2vw, 17px);
+    line-height: 1.6;
 }
 
-.download{
-    padding:25px 15px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:12px;
+/* MAIN CONTAINER */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 20px 40px;
 }
 
-button{
-    border:0;
-    border-radius:10px;
-    padding:15px 25px;
-    background:#2563eb;
-    color:#fff;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+/* ACTION BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
 }
 
-button:hover{
-    background:#1d4ed8;
-    transform:translateY(-2px);
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    padding: 13px 22px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.print-button{
-    background:#16a34a;
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
-.print-button:hover{
-    background:#15803d;
+.btn:active {
+    transform: scale(0.98);
 }
 
-/* DOCUMENTS ARRANGED VERTICALLY */
-.preview{
-    background:#e9edf3;
-    padding:25px 12px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
-    gap:25px;
-    overflow-x:auto;
+.btn-download {
+    background: #16a34a;
 }
 
-/* RESUME JPG - FIRST A4 PAGE */
-.resume-preview{
-    display:block;
-    width:210mm;
-    height:297mm;
-    min-width:210mm;
-    flex:0 0 210mm;
-    object-fit:contain;
-    background:#fff;
-    border:1px solid #ddd;
-    box-shadow:0 4px 15px rgba(0,0,0,.12);
+.btn-print {
+    background: #2563eb;
 }
 
-/* APPLICATION LETTER - SECOND A4 PAGE */
-.letter-page{
-    width:210mm;
-    height:297mm;
-    min-width:210mm;
-    min-height:297mm;
-    flex:0 0 210mm;
-    background:#fff;
-    padding:22mm 25mm;
-    border:1px solid #ddd;
-    box-shadow:0 4px 15px rgba(0,0,0,.12);
-    overflow:hidden;
-    color:#000;
+/* DOCUMENT PREVIEW SECTION */
+.preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
 }
 
-.letter{
-    width:100%;
-    font-family:"Times New Roman",Times,serif;
-    font-size:12pt;
-    line-height:1.35;
-    color:#000;
+/* DOCUMENT LABEL */
+.document-heading {
+    width: 100%;
+    max-width: 210mm;
+    margin-bottom: -16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #334155;
 }
 
-.letter p{
-    font-family:"Times New Roman",Times,serif;
-    font-size:12pt;
-    line-height:1.35;
-    margin:0 0 9px;
+/* RESUME A4 PREVIEW */
+.resume-page {
+    position: relative;
+    width: 100%;
+    max-width: 210mm;
+    aspect-ratio: 210 / 297;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 22px rgba(15, 23, 42, 0.13);
 }
 
-.letter .space{
-    height:14px;
+.resume-page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: white;
 }
 
-.letter .large-space{
-    height:22px;
+/* APPLICATION LETTER A4 PREVIEW */
+.letter-page {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    padding: 22mm 25mm;
+    background: white;
+    box-shadow: 0 5px 22px rgba(15, 23, 42, 0.13);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    overflow-wrap: break-word;
 }
 
-.letter .body-text{
-    text-align:justify;
-    margin-bottom:12px;
+.letter-page p {
+    margin-bottom: 16px;
+}
+
+.letter-date {
+    text-align: right;
+    margin-bottom: 30px !important;
+}
+
+.letter-address {
+    margin-bottom: 24px !important;
+}
+
+.letter-greeting {
+    margin-bottom: 18px !important;
+}
+
+.letter-body {
+    text-align: justify;
+    text-indent: 35px;
+    margin-bottom: 18px !important;
+}
+
+.letter-closing {
+    margin-top: 28px;
+    margin-bottom: 45px !important;
+}
+
+.signature {
+    margin-bottom: 4px !important;
+    font-weight: bold;
+}
+
+.signature-subtitle {
+    margin-bottom: 0 !important;
 }
 
 /* FOOTER */
-.footer{
-    text-align:center;
-    padding:22px 15px;
-    color:#64748b;
-    background:#f8fafc;
-    border-top:1px solid #e2e8f0;
-    font-size:13px;
-    line-height:1.8;
+.footer {
+    width: 100%;
+    padding: 22px 15px;
+    text-align: center;
+    background: #0f172a;
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
-.footer strong{
-    color:#1e3a8a;
+/* TABLET */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 28px 15px;
+    }
+
+    .container {
+        padding: 20px 14px 30px;
+    }
+
+    .buttons {
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .btn {
+        flex: 1 1 200px;
+    }
+
+    .preview {
+        gap: 22px;
+    }
+
+    .document-heading {
+        font-size: 15px;
+        margin-bottom: -12px;
+    }
+
+    .letter-page {
+        min-height: auto;
+        padding: 8%;
+        font-size: 11pt;
+        line-height: 1.45;
+    }
+
+    .letter-page p {
+        margin-bottom: 13px;
+    }
+
+    .letter-body {
+        text-indent: 25px;
+    }
 }
 
-@media(max-width:700px){
-    body{
-        padding:12px 6px;
+/* MOBILE PHONE */
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 24px 13px;
     }
 
-    .container{
-        border-radius:12px;
+    .header h1 {
+        font-size: 25px;
     }
 
-    .header{
-        padding:32px 12px;
+    .header p {
+        font-size: 13px;
     }
 
-    .header h1{
-        font-size:28px;
+    .container {
+        padding: 15px 10px 25px;
     }
 
-    .header p{
-        font-size:14px;
+    .buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 20px;
     }
 
-    .download{
-        padding:20px 12px;
+    .btn {
+        width: 100%;
+        flex: none;
+        min-height: 48px;
+        padding: 13px 12px;
+        font-size: 14px;
     }
 
-    button{
-        width:100%;
-        font-size:15px;
+    .preview {
+        gap: 18px;
     }
 
-    .preview{
-        padding:15px 0;
-        align-items:flex-start;
+    .document-heading {
+        font-size: 14px;
+        margin-bottom: -10px;
     }
 
-    .resume-preview,
-    .letter-page{
-        align-self:center;
+    .resume-page {
+        width: 100%;
+        aspect-ratio: 210 / 297;
+    }
+
+    .letter-page {
+        width: 100%;
+        min-height: auto;
+        padding: 7%;
+        font-size: 10pt;
+        line-height: 1.4;
+    }
+
+    .letter-page p {
+        margin-bottom: 12px;
+    }
+
+    .letter-date {
+        margin-bottom: 22px !important;
+    }
+
+    .letter-address {
+        margin-bottom: 18px !important;
+    }
+
+    .letter-body {
+        text-indent: 20px;
+        margin-bottom: 14px !important;
+    }
+
+    .letter-closing {
+        margin-top: 22px;
+        margin-bottom: 35px !important;
+    }
+
+    .footer {
+        padding: 18px 10px;
+        font-size: 12px;
+    }
+}
+
+/* PRINT SETTINGS: TWO A4 PAGES */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    html,
+    body {
+        width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        overflow: visible !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .header,
+    .buttons,
+    .footer,
+    .document-heading {
+        display: none !important;
+    }
+
+    .container {
+        display: block !important;
+        width: 210mm !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .preview {
+        display: block !important;
+        width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
+    }
+
+    .resume-page {
+        display: block !important;
+        width: 210mm !important;
+        max-width: none !important;
+        height: 297mm !important;
+        aspect-ratio: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+    }
+
+    .resume-page img {
+        display: block !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        object-fit: contain !important;
+    }
+
+    .letter-page {
+        display: block !important;
+        width: 210mm !important;
+        max-width: none !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 22mm 25mm !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        font-family: "Times New Roman", Times, serif !important;
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: auto !important;
+        break-after: auto !important;
+    }
+
+    .letter-page p {
+        margin-bottom: 16px !important;
+    }
+
+    .letter-date {
+        margin-bottom: 30px !important;
+    }
+
+    .letter-address {
+        margin-bottom: 24px !important;
+    }
+
+    .letter-body {
+        text-align: justify !important;
+        text-indent: 35px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .letter-closing {
+        margin-top: 28px !important;
+        margin-bottom: 45px !important;
     }
 }
 </style>
@@ -209,182 +439,129 @@ button:hover{
 
 <body>
 
-<div class="container">
+<header class="header">
+    <h1>Jess Santiago Web</h1>
+    <p>Resume and Application Letter</p>
+</header>
 
-    <header class="header">
-        <h1>Welcome to Jess Santiago Web</h1>
-        <p>🔒 Resume and Application Letter</p>
-        <p>Professional documents ready for printing.</p>
-    </header>
+<main class="container">
 
-    <section class="download">
-
-        <button type="button" onclick="downloadResume()">
-            ⬇ Download Resume JPG
+    <div class="buttons">
+        <button type="button" class="btn btn-download" onclick="downloadResume()">
+            Download Resume JPG
         </button>
 
-        <button type="button"
-                class="print-button"
-                onclick="printDocuments()">
-            🖨 Print Resume &amp; Application Letter
+        <button type="button" class="btn btn-print" onclick="printDocuments()">
+            Print Resume and Application Letter
         </button>
+    </div>
 
-    </section>
-
-    <!-- FIRST: RESUME JPG; SECOND: APPLICATION LETTER -->
     <section class="preview">
 
-        <img
-            class="resume-preview"
-            src="Jess Santiago CV Resume.jpg"
-            alt="Jess Santiago Resume"
-        >
+        <!-- FIRST DOCUMENT: RESUME JPG -->
+        <h2 class="document-heading">1. Resume</h2>
 
-        <div class="letter-page">
-
-            <div class="letter" id="applicationLetter">
-
-                <p><strong>Jess I. Santiago</strong></p>
-                <p>Cabiraoan, Gonzaga, Cagayan</p>
-                <p>09106465156</p>
-                <p>jesssantiago089@gmail.com</p>
-
-                <div class="large-space"></div>
-
-                <p>October 9, 2026</p>
-
-                <div class="large-space"></div>
-
-                <p><strong>The Hiring Manager</strong></p>
-                <p>Human Resources Department</p>
-                <p>Your Company Name</p>
-                <p>Company Address</p>
-
-                <div class="large-space"></div>
-
-                <p><strong>Subject: Application for Employment</strong></p>
-
-                <div class="space"></div>
-
-                <p>Dear Sir/Madam,</p>
-
-                <div class="space"></div>
-
-                <p class="body-text">
-                    I am writing to express my sincere interest in
-                    applying for a position in your company. I am eager
-                    to contribute my knowledge, skills, and dedication
-                    to support your organization's goals and success.
-                </p>
-
-                <p class="body-text">
-                    I have completed my education and developed valuable
-                    skills that I believe will help me perform my
-                    responsibilities effectively. I am willing to learn
-                    new things, adapt to different working environments,
-                    and take on challenges that will help me grow both
-                    personally and professionally.
-                </p>
-
-                <p class="body-text">
-                    I consider myself a responsible, hardworking,
-                    trustworthy, and adaptable individual who values
-                    teamwork, discipline, and professionalism. I am
-                    committed to performing my duties with honesty,
-                    dedication, and integrity while maintaining a
-                    positive attitude toward my work and colleagues.
-                </p>
-
-                <p class="body-text">
-                    I believe that joining your company would be a
-                    valuable opportunity to develop my skills, gain
-                    meaningful work experience, and contribute
-                    positively to your team. I am willing to undergo
-                    training and accept responsibilities that will help
-                    me become a more effective and productive employee.
-                </p>
-
-                <p class="body-text">
-                    Attached are my résumé and other supporting
-                    documents for your review. I would appreciate
-                    the opportunity to discuss my qualifications
-                    further in an interview at your convenience.
-                </p>
-
-                <p class="body-text">
-                    Thank you for your time and consideration. I look
-                    forward to the opportunity to become part of your
-                    company and contribute to its continued growth
-                    and success.
-                </p>
-
-                <div class="space"></div>
-
-                <p>Respectfully yours,</p>
-
-                <div style="height:45px;"></div>
-
-                <p><strong>JESS IBUS SANTIAGO</strong></p>
-
-            </div>
-
+        <div class="resume-page">
+            <img
+                id="resumeImage"
+                src="Jess Santiago CV Resume.jpg"
+                alt="Jess Santiago Resume"
+            >
         </div>
+
+        <!-- SECOND DOCUMENT: APPLICATION LETTER -->
+        <h2 class="document-heading">2. Application Letter</h2>
+
+        <article class="letter-page" id="applicationLetter">
+
+            <p class="letter-date">October 9, 2026</p>
+
+            <p class="letter-address">
+                The Hiring Manager<br>
+                Human Resources Department<br>
+                Your Company Name<br>
+                Company Address
+            </p>
+
+            <p class="letter-greeting">Dear Hiring Manager,</p>
+
+            <p class="letter-body">
+                I am writing to express my interest in applying for a suitable
+                position in your company. I am eager to contribute my skills,
+                knowledge, and dedication to your organization while continuing
+                to learn and grow professionally.
+            </p>
+
+            <p class="letter-body">
+                I am willing to undergo training, accept responsibilities, and
+                work collaboratively with other team members to help achieve
+                the company's goals. I believe that being hardworking,
+                responsible, and willing to learn are important qualities in
+                becoming a valuable employee.
+            </p>
+
+            <p class="letter-body">
+                I would appreciate the opportunity to discuss my qualifications
+                with you in an interview. Thank you for your time and
+                consideration. I look forward to hearing from you.
+            </p>
+
+            <p class="letter-closing">
+                Respectfully yours,
+            </p>
+
+            <p class="signature">Jess Santiago</p>
+            <p class="signature-subtitle">Applicant</p>
+
+        </article>
 
     </section>
 
-    <footer class="footer">
-        <p>
-            &copy; <span id="currentYear"></span>
-            <strong>Jess Santiago Web</strong>. All Rights Reserved.
-        </p>
-        <p>Resume &amp; Application Letter | Professional Documents</p>
-    </footer>
+</main>
 
-</div>
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> Jess Santiago Web. All Rights Reserved.</p>
+</footer>
 
 <script>
-function downloadResume(){
+"use strict";
 
-    const image = document.querySelector(".resume-preview");
+const resumeImage = document.getElementById("resumeImage");
+const applicationLetter = document.getElementById("applicationLetter");
 
-    if(!image){
-        alert("Resume image not found.");
-        return;
-    }
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+/* DOWNLOAD RESUME JPG */
+function downloadResume() {
+    const imagePath = "Jess Santiago CV Resume.jpg";
 
     const link = document.createElement("a");
-
-    link.href = image.getAttribute("src");
+    link.href = imagePath;
     link.download = "Jess Santiago CV Resume.jpg";
-
     document.body.appendChild(link);
     link.click();
     link.remove();
 }
 
-function printDocuments(){
+/* PRINT RESUME FIRST, APPLICATION LETTER SECOND */
+function printDocuments() {
+    if (!resumeImage.complete || resumeImage.naturalWidth === 0) {
+        alert(
+            'Hindi mahanap ang resume JPG. Siguraduhing ang file na "Jess Santiago CV Resume.jpg" ay nasa parehong folder ng HTML.'
+        );
+        return;
+    }
 
-    const resumeImage = document.querySelector(".resume-preview");
-    const letter = document.getElementById("applicationLetter");
+    const printWindow = window.open("", "_blank");
 
-    if(!resumeImage || !letter){
-        alert("Resume or application letter not found.");
+    if (!printWindow) {
+        alert("Payagan ang pop-up window sa browser upang makapag-print.");
         return;
     }
 
     const imageURL = resumeImage.src;
-    const letterHTML = letter.innerHTML;
-
-    const printWindow = window.open("", "_blank");
-
-    if(!printWindow){
-        alert("Please allow pop-ups in your browser to print the documents.");
-        return;
-    }
-
-    const safeImageURL = imageURL
-        .replace(/&/g, "&amp;")
-        .replace(/"/g, "&quot;");
+    const letterHTML = applicationLetter.innerHTML;
 
     printWindow.document.open();
 
@@ -393,90 +570,107 @@ function printDocuments(){
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Jess Santiago - Resume and Application Letter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume and Application Letter</title>
 
 <style>
-@page{
-    size:A4 portrait;
-    margin:0;
+* {
+    box-sizing: border-box;
 }
 
-*{
-    box-sizing:border-box;
+@page {
+    size: A4 portrait;
+    margin: 0;
 }
 
-html,body{
-    padding:0;
-    margin:0;
-    background:#fff;
-    color:#000;
+html,
+body {
+    width: 210mm;
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: "Times New Roman", Times, serif;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
 }
 
-.page{
-    width:210mm;
-    height:297mm;
-    position:relative;
-    margin:0;
-    padding:0;
-    overflow:hidden;
-    page-break-after:always;
-    break-after:page;
+.resume-print-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
 }
 
-.page:last-child{
-    page-break-after:auto;
-    break-after:auto;
+.resume-print-page img {
+    display: block;
+    width: 210mm;
+    height: 297mm;
+    object-fit: contain;
 }
 
-/* RESUME JPG - FIRST PAGE */
-.resume-image{
-    display:block;
-    width:210mm;
-    height:297mm;
-    object-fit:contain;
+.letter-print-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 22mm 25mm;
+    overflow: hidden;
+    font-size: 12pt;
+    line-height: 1.5;
+    page-break-before: always;
+    break-before: page;
 }
 
-/* APPLICATION LETTER - SECOND PAGE */
-.letter-paper{
-    width:210mm;
-    height:297mm;
-    padding:22mm 25mm;
-    overflow:hidden;
-    font-family:"Times New Roman",Times,serif;
-    font-size:12pt;
-    line-height:1.35;
-    color:#000;
+.letter-print-page p {
+    margin: 0 0 16px;
 }
 
-.letter-paper p{
-    font-family:"Times New Roman",Times,serif;
-    font-size:12pt;
-    line-height:1.35;
-    margin:0 0 9px;
+.letter-print-page .letter-date {
+    text-align: right;
+    margin-bottom: 30px;
 }
 
-.letter-paper .body-text{
-    text-align:justify;
-    margin-bottom:12px;
+.letter-print-page .letter-address {
+    margin-bottom: 24px;
 }
 
-.letter-paper .space{
-    height:14px;
+.letter-print-page .letter-greeting {
+    margin-bottom: 18px;
 }
 
-.letter-paper .large-space{
-    height:22px;
+.letter-print-page .letter-body {
+    text-align: justify;
+    text-indent: 35px;
+    margin-bottom: 18px;
 }
 
-@media screen{
-    body{
-        background:#e5e7eb;
+.letter-print-page .letter-closing {
+    margin-top: 28px;
+    margin-bottom: 45px;
+}
+
+.letter-print-page .signature {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.letter-print-page .signature-subtitle {
+    margin-bottom: 0;
+}
+
+@media screen {
+    body {
+        width: 100%;
+        background: #e2e8f0;
     }
 
-    .page{
-        margin:12px auto;
-        background:#fff;
-        box-shadow:0 2px 12px rgba(0,0,0,.15);
+    .resume-print-page,
+    .letter-print-page {
+        margin: 15px auto;
+        background: white;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
     }
 }
 </style>
@@ -484,55 +678,38 @@ html,body{
 
 <body>
 
-<div class="page">
-    <img
-        class="resume-image"
-        id="resumeImage"
-        src="${safeImageURL}"
-        alt="Resume"
-    >
-</div>
+    <section class="resume-print-page">
+        <img id="printResumeImage" src="${imageURL}" alt="Resume">
+    </section>
 
-<div class="page">
-    <div class="letter-paper">
+    <section class="letter-print-page">
         ${letterHTML}
-    </div>
-</div>
+    </section>
 
 <script>
-(function(){
+window.onload = function() {
+    const img = document.getElementById("printResumeImage");
 
-    const image = document.getElementById("resumeImage");
-
-    function printWhenReady(){
-
-        if(!image.naturalWidth){
-            alert("Unable to load the resume JPG. Check the image filename and folder.");
-            return;
-        }
-
-        window.focus();
-
-        setTimeout(function(){
+    function startPrint() {
+        setTimeout(function() {
+            window.focus();
             window.print();
-        }, 500);
+        }, 400);
     }
 
-    if(image.complete){
-        printWhenReady();
-    }else{
-        image.onload = printWhenReady;
-
-        image.onerror = function(){
-            alert("Resume JPG could not be loaded.");
+    if (img.complete && img.naturalWidth > 0) {
+        startPrint();
+    } else {
+        img.onload = startPrint;
+        img.onerror = function() {
+            alert("Hindi ma-load ang resume image para sa pag-print.");
         };
     }
+};
 
-    window.onafterprint = function(){
-        window.close();
-    };
-
-})();
+window.onafterprint = function() {
+    window.close();
+};
 <\/script>
 
 </body>
@@ -541,9 +718,6 @@ html,body{
 
     printWindow.document.close();
 }
-
-document.getElementById("currentYear").textContent =
-    new Date().getFullYear();
 </script>
 
 </body>
