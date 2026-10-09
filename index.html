@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jess Santiago Web</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.header{
+    padding:50px 20px;
+    text-align:center;
+    color:#fff;
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+}
+
+.header h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.header p{
+    font-size:18px;
+    opacity:.95;
+}
+
+.preview{
+    padding:25px;
+    background:#f5f5f5;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.preview img{
+    width:420px;
+    max-width:100%;
+    display:block;
+    border-radius:12px;
+    border:1px solid #ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.download{
+    padding:35px;
+    text-align:center;
+}
+
+button{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:18px 45px;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+    font-size:14px;
+}
+.letter-page{
+    width:210mm;
+    min-height:297mm;
+    margin:auto;
+    background:#fff;
+    padding:25mm;
+    box-sizing:border-box;
+    font-family:"Times New Roman", serif;
+    font-size:12pt;
+    line-height:1.7;
+    color:#000;
+    border:1px solid #ddd;
+}
+
+.letter p{
+    margin-bottom:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Welcome to Jess Santiago Web</h1>
+        <p>🔒 This page is secured, fast and safe to download.</p>
+    </div>
+
+    <div class="download">
+    <button onclick="downloadResume()">
+        ⬇ Download Resume
+    </button>
+
+    <button onclick="printPictures()" style="background:#16a34a;margin-left:10px;">
+        🖨 Print Resume & Application Letter
+    </button>
+</div>
+
+<div class="preview" id="printArea">
+
+    <img src="Jess Santiago CV Resume.jpg" alt="Resume">
+
+    <div class="letter-page">
+
+    <div class="letter">
+
+        <p><strong>Jess I. Santiago</strong></p>
+        <p>Cabiraoan, Gonzaga, Cagayan</p>
+        <p>09106465156</p>
+        <p>jesssantiago089@gmail.com</p>
+
+        <br>
+
+        <p>July 23, 2026</p>
+
+        <br>
+
+        <p><strong>The School Principal</strong></p>
+        <p>St. Anthony Academy</p>
+        <p>Sta. Ana, Cagayan</p>
+
+        <br>
+
+        <p><strong>Subject: Application for Volunteer Teacher Position</strong></p>
+
+        <br>
+
+        <p>Dear Sir/Madam,</p>
+
+        <br>
+
+        <p style="text-align:justify;">
+            I am writing to express my sincere interest in applying for the position of
+            <strong>Volunteer Teacher</strong> at St. Anthony Academy, Sta. Ana, Cagayan.
+            As a passionate and dedicated educator, I am eager to contribute my knowledge,
+            skills, and enthusiasm to support the academic and personal development of your students.
+        </p>
+
+        <p style="text-align:justify;">
+            I have completed my education in the field of teaching and have developed a strong
+            foundation in lesson planning, classroom management, and learner-centered instructional
+            strategies. I am committed to creating a positive, inclusive, and engaging learning
+            environment where students are encouraged to develop academically, socially, and morally.
+        </p>
+
+        <p style="text-align:justify;">
+            Although this is a volunteer position, I am highly motivated to serve with dedication,
+            professionalism, and integrity. I believe that teaching is not only a profession but
+            also a calling, and I am excited about the opportunity to work alongside your faculty
+            in fulfilling the school's mission of providing quality education.
+        </p>
+
+        <p style="text-align:justify;">
+            I am a responsible, hardworking, and adaptable individual who values teamwork and
+            continuous learning. I am confident that my passion for education and willingness to
+            serve will enable me to make a meaningful contribution to your school community.
+        </p>
+
+        <p style="text-align:justify;">
+            I have attached my résumé and other supporting documents for your review.
+            I would be grateful for the opportunity to discuss my qualifications further
+            in an interview at your convenience.
+        </p>
+
+        <p style="text-align:justify;">
+            Thank you for considering my application. I look forward to the opportunity to
+            serve as a Volunteer Teacher at St. Anthony Academy, Sta. Ana, Cagayan.
+        </p>
+
+        <br>
+
+        <p>Respectfully yours,</p>
+
+        <br><br><br>
+
+        <p><strong>JESS IBUS SANTIAGO</strong></p>
+
+    </div>
+
+</div>
+
+</div>
+    </div>
+
+    <div class="footer">
+        © 2026 Jess Santiago. All Rights Reserved.
+    </div>
+
+</div>
+
+<script>
+function downloadResume(){
+
+    const link = document.createElement("a");
+
+    // Pangalan ng Word file
+    link.href = "Jess Santiago Resume.docx";
+
+    // Automatic download
+    link.download = "Jess Santiago Resume.docx";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+function printPictures(){
+
+    const win = window.open("", "_blank");
+
+    win.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Print Documents</title>
+
+        <style>
+
+        @page{
+            size:A4 portrait;
+            margin:0;
+        }
+
+        html,body{
+            margin:0;
+            padding:0;
+            background:#fff;
+        }
+
+        .page{
+            width:210mm;
+            height:297mm;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            page-break-after:always;
+        }
+
+        .page:last-child{
+            page-break-after:auto;
+        }
+
+        img{
+            width:210mm;
+            height:297mm;
+            object-fit:contain; /* Palitan ng 'cover' kung gusto mong sakupin buong A4 */
+        }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="page">
+            <img src="Jess Santiago CV Resume.jpg">
+        </div>
+
+        <div class="page">
+            <img src="Application Letter.png">
+        </div>
+
+        <script>
+        window.onload=function(){
+            window.print();
+            window.close();
+        }
+        <\/script>
+
+    </body>
+    </html>
+    `);
+
+    win.document.close();
+
+}
+</script>
+</script>
+
+</body>
+</html>
